@@ -48,7 +48,8 @@
                 
              var g = svg.append("g")
                 .attr("transform", "translate(" + 100 + "," + 100 + ")");
-    
+               
+                async function init() {(
                 const data = await d3.csv('https://flunky.github.io/cars2017.csv');
                    
                 x.domain(data.map(function(d) { return d.EngineCylinders; }));
