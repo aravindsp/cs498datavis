@@ -88,7 +88,7 @@
                .on("mouseover", onMouseOver) 
                .on("mouseout", onMouseOut)   
                .attr("x", function(d) { return x(d.EngineCylinders); })
-               .attr("y", function(d) { return y(d.AverageCityMPG); })
+               .attr("y", function(d) { return y(d.AverageCityMPG*0.5); })
                .attr("width", x.bandwidth()).transition()
                .ease(d3.easeLinear).duration(200)
                .delay(function (d, i) {
