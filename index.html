@@ -29,7 +29,7 @@
    </head>
 
    <body>
-      <svg width = "500" height = "1200"></svg>
+      <svg width = "500" height = "800"></svg>
       <script>
          var svg = d3.select("svg"),
          margin = 200, width = svg.attr("width") - margin,
@@ -107,8 +107,8 @@
                .transition()     
                .duration(200)
                .attr('width', x.bandwidth() + 5)
-               .attr("y", function(d) { return y(d.AverageCityMPG) - 10; })
-               .attr("height", function(d) { return height - y(d.AverageCityMPG) + 10; });
+               .attr("y", function(d) { return y(d.AverageCityMPG); })
+               .attr("height", function(d) { return height - y(d.AverageCityMPG); });
               
             g.append("text")
                .attr('class', 'val')
