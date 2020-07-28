@@ -29,7 +29,7 @@
    </head>
 
    <body>
-      <svg width = "500" height = "800"></svg>
+      <svg width = "500" height = "200"></svg>
       <script>
          var svg = d3.select("svg"),
          margin = 1, width = svg.attr("width") - margin,
@@ -43,7 +43,7 @@
             .text("AverageCityMPG bar chart")
             
          var x = d3.scaleBand().range([0, width]),
-         y = d3.scaleLinear().range([150, 0]);
+         y = d3.scaleLinear().range([height, 0]);
             
          var g = svg.append("g")
             .attr("transform", "translate(" + 100 + "," + 100 + ")");
@@ -88,7 +88,7 @@
                .on("mouseover", onMouseOver) 
                .on("mouseout", onMouseOut)   
                .attr("x", function(d) { return x(d.EngineCylinders); })
-               .attr("y", function(d) { return y(d.AverageCityMPG*0.5); })
+               .attr("y", function(d) { return y(d.AverageCityMPG); })
                .attr("width", x.bandwidth()).transition()
                .ease(d3.easeLinear).duration(200)
                .delay(function (d, i) {
