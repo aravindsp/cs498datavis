@@ -51,7 +51,7 @@
     
                 const data = await d3.csv('https://flunky.github.io/cars2017.csv');
                    
-                x.domain(data.map(function(d) { return d.year; }));
+                x.domain(data.map(function(d) { return d.EngineCylinders; }));
                 y.domain([0, d3.max(data, function(d) { return d.AverageCityMPG; })]);
                          
                 g.append("g")
@@ -62,7 +62,7 @@
                    .attr("x", width - 100)
                    .attr("text-anchor", "end")
                    .attr("font-size", "18px")
-                   .attr("stroke", "blue").text("year");
+                   .attr("stroke", "blue").text("EngineCylinders");
                    
                 g.append("g")
                    .append("text")
@@ -111,7 +111,7 @@
                 g.append("text")
                    .attr('class', 'val')
                    .attr('x', function() {
-                      return x(d.year);
+                      return x(d.EngineCylinders);
                    })
                    
                 .attr('y', function() {
