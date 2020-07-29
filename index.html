@@ -70,6 +70,7 @@ d3.csv("https://github.com/aravindsp/cs498datavis/blob/master/AAPL.csv", functio
 data.forEach(function(d){
 d.date = ParseDate(d.date);
 d.close = +d.close;
+d;
 //the + sign converts string automagically to number
 });
 
