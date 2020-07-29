@@ -35,7 +35,7 @@ left: 50
 var width = 700 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
 //Create date parser
-var ParseDate = d3.time.format("%Y-%m-%d").parse;
+var ParseDate = d3.time.format("%m/%d/%Y").parse;
 //Create x and y scale to scale inputs
 var xScale = d3.time.scale().range([0, width]);
 var yScale = d3.scale.linear().range([height, 0]);
