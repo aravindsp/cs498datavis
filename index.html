@@ -65,7 +65,7 @@ var svgElement = d3.select("body").append("svg")
 .attr("transform","translate("+margin.left+","+margin.top+")");
 
 //Read TSV file
-d3.csv("https://github.com/aravindsp/cs498datavis/blob/master/AAPL.csv", function(data){
+d3.csv("https://aravindsp.github.io/cs498datavis/AAPL.csv", function(data){
 //Parse Data into useable format
 data.forEach(function(d){
 d.date = ParseDate(d.date);
