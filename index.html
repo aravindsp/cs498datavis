@@ -17,6 +17,23 @@ stroke: grey;
 stroke-width: 1;
 shape-rendering: crispEdges;
 }
+
+.focus circle {
+        fill: steelblue;
+    }
+
+    .focus text {
+        font-size: 14px;
+    }
+
+    .tooltip {
+        fill: white;
+        stroke: #000;
+    }
+
+    .tooltip-date, .tooltip-likes {
+        font-weight: bold;
+    }
 </style>
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -98,6 +115,57 @@ y.append("text")
 .attr("dy", "0.71em")
 .attr("text-anchor", "end")
 .text("Price ($)");
+
+var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 5);
+
+        focus.append("rect")
+            .attr("class", "tooltip")
+            .attr("width", 100)
+            .attr("height", 50)
+            .attr("x", 10)
+            .attr("y", -22)
+            .attr("rx", 4)
+            .attr("ry", 4);
+
+        focus.append("text")
+            .attr("class", "tooltip-date")
+            .attr("x", 18)
+            .attr("y", -2);
+
+        focus.append("text")
+            .attr("x", 18)
+            .attr("y", 18)
+            .text("Likes:");
+
+        focus.append("text")
+            .attr("class", "tooltip-likes")
+            .attr("x", 60)
+            .attr("y", 18);
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function() { focus.style("display", null); })
+            .on("mouseout", function() { focus.style("display", "none"); })
+            .on("mousemove", mousemove);
+
+        function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i],
+                d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+            focus.attr("transform", "translate(" + x(d.date) + "," + y(d.likes) + ")");
+            focus.select(".tooltip-date").text(dateFormatter(d.date));
+            focus.select(".tooltip-likes").text(formatValue(d.likes));
+        }
+
 });
 </script>
 </body>
