@@ -64,7 +64,7 @@ var svgElement = d3.select("body").append("svg")
 .attr("transform","translate("+margin.left+","+margin.top+")");
 
 
-var focus = svg.append("g").style("display", "none");
+
 
 //Read TSV file
 d3.csv("https://aravindsp.github.io/cs498datavis/AAPL.csv", function(data){
@@ -102,6 +102,7 @@ y.append("text")
 .attr("text-anchor", "end")
 .text("Price ($)");
 
+var focus = svgElement.append("g").style("display", "none");
 
 });
 </script>
