@@ -92,7 +92,7 @@ d;
 
 //Set the domains of our scales
 xScale.domain(d3.extent(data, function(d){ return d.date; }));
-yScale.domain([d3.min(data, function(d){ return d.close; }), d3.max(data, function(d){ return d.close; })]);
+yScale.domain([d3.min(data, function(d){ return d.close - 50; }), d3.max(data, function(d){ return d.close; })]);
 
 //append the svg path
 var path = svgElement.append("path")
