@@ -29,7 +29,7 @@
    </head>
 
    <body>
-      <svg width = "500" height = "500"></svg>
+      <svg width = "500" height = "200"></svg>
       <script>
          var svg = d3.select("svg"),
          margin = 1, width = svg.attr("width") - margin,
@@ -46,7 +46,7 @@
          y = d3.scaleLinear().range([height, 0]);
             
          var g = svg.append("g")
-            .attr("transform", "translate(" + 100 + "," + 100 + ")");
+            .attr("transform", "translate(" + 200 + "," + 200 + ")");
 
          d3.csv("https://flunky.github.io/cars2017.csv", function(error, data) {
             if (error) {
