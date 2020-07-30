@@ -65,7 +65,7 @@ var svg = d3.select("svg"),
 var parseTime = d3.timeParse("%m/%d/%Y")
     bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
-var x = d3.scaleTime().range([new Date("2020-01-01"), new Date("2020-07-01")]);
+var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 
