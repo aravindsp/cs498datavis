@@ -62,7 +62,7 @@ var svg = d3.select("svg"),
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
-var parseTime = d3.timeParse("%m/%d/%Y")
+var parseTime = d3.timeParse("%Y%m")
     bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
 var x = d3.scaleTime().range([0, width]);
