@@ -1,155 +1,66 @@
+
 <!DOCTYPE html>
-<meta charset="utf-8">
+<html>
+
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,500,700" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.2/vega-tooltip.css" rel="stylesheet">
 </head>
-<style>
-body {
-  background-color: #f0f5f5;
-  font-family: 'Fira Sans', sans-serif;
-}
-  
-text {
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  color: #081F2C;
-}
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #D4D8DA;
-  stroke-width: 2px;
-  shape-rendering: crispEdges;
-}
-  
-.axis-title{
-  fill: #5B6770;
-  letter-spacing: 1px;
-}
-
-.line {
-  fill: none;
-  stroke: #6F257F;
-  stroke-width: 5px;
-}
-
-.overlay {
-  fill: none;
-  pointer-events: all;
-}
-
-.focus circle {
-  fill: #F1F3F3;
-  stroke: #6F257F;
-  stroke-width: 5px;
-}
-  
-.hover-line {
-  stroke: #6F257F;
-  stroke-width: 2px;
-  stroke-dasharray: 2,4;
-}
-
-</style>
-<body>
-<svg width="800" height="500"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script>
-var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom;
-
-var parseTime = d3.timeParse("%Y%m%d")
-    bisectDate = d3.bisector(function(d) { return d.date; }).left;
-
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+<body data-spy="scroll" data-target=".scrollspy">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="index.html">World Happiness Story</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a>Description</a></li>
+          <li class="active"><a>S&P</a></li>
+          <li><a>Nifty</a></li>
+          <li><a>Gold</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 
-var line = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.value); });
+  <div class="container">
+    <br>
+    <br>
+    <div class="page-header">
+      <h1>USA - S&P</h1>
+    </div>
+    <p class="lead">
+      nifty was down
+    </p>
+    <br>
 
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    <div id="sp" class="mx-auto col-md-8 col-12 mb-5"></div>
+  </div>
 
-    d3.csv("https://aravindsp.github.io/cs498datavis/AAPL.csv", function(error, data) {
-    if (error) throw error;
+  <ul class="pager">
+    <li><a href="index.html">Previous</a></li>
+    <li><a href="gold.html">Next</a></li>
+  </ul>
 
-    data.forEach(function(d) {
-      d.date = parseTime(d.date);
-      d.value = +d.value;
-    });
+  <footer class="footer">
+  </footer>
 
-    x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain([d3.min(data, function(d) { return d.value; }) / 1.1, d3.max(data, function(d) { return d.value; }) * 1.1]);
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
+  <script src="sp.js"></script>
+</body>
 
-    g.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-
-
-    g.append("g")
-        .attr("class", "axis axis--y")
-        .call(d3.axisLeft(y).ticks(6).tickFormat(function(d) { return parseInt(d); }))
-      .append("text")
-        .attr("class", "axis-title")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Index Value");
-
-    g.append("path")
-        .datum(data)
-        .attr("class", "line")
-        .attr("d", line);
-
-    var focus = g.append("g")
-        .attr("class", "focus")
-        .style("display", "none");
-
-    focus.append("line")
-        .attr("class", "x-hover-line hover-line")
-        .attr("y1", 0)
-        .attr("y2", height);
-
-    focus.append("line")
-        .attr("class", "y-hover-line hover-line")
-        .attr("x1", width)
-        .attr("x2", width);
-
-    focus.append("circle")
-        .attr("r", 6);
-
-    focus.append("text")
-        .attr("x", 15)
-      	.attr("dy", ".31em");
-
-    svg.append("rect")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        .attr("class", "overlay")
-        .attr("width", width)
-        .attr("height", height)
-        .on("mouseover", function() { focus.style("display", null); })
-        .on("mouseout", function() { focus.style("display", "none"); })
-        .on("mousemove", mousemove);
-
-    function mousemove() {
-      var x0 = x.invert(d3.mouse(this)[0]),
-          i = bisectDate(data, x0, 1),
-          d0 = data[i - 1],
-          d1 = data[i],
-          d = x0 - d0.date > d1.date - x0 ? d1 : d0;
-      focus.attr("transform", "translate(" + x(d.date) + "," + y(d.value) + ")");
-      focus.select("text").text(function() { return d.value; });
-      focus.select(".x-hover-line").attr("y2", height - y(d.value));
-      focus.select(".y-hover-line").attr("x2", width + width);
-    }
-});
-
-</script>
+</html>
