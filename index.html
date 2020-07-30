@@ -65,8 +65,12 @@ var svg = d3.select("svg"),
 var parseTime = d3.timeParse("%m/%d/%Y")
     bisectDate = d3.bisector(function(d) { return d.date; }).left;
 
-var x = d3.scaleTime().range([0, width]);
+//var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
+
+var x = d3.scaleTime()
+    .domain([new Date(2020, 0, 1), new Date(2020, 0, 7)])
+    .range([0, 960]);
 
 
 var line = d3.line()
@@ -84,7 +88,7 @@ var g = svg.append("g")
       d.value = +d.value;
     });
 
-    x.domain(d3.extent(data, function(d) { return d.date; }));
+ //   x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain([d3.min(data, function(d) { return d.value; }) / 1.1, d3.max(data, function(d) { return d.value; }) * 1.1]);
 
     g.append("g")
