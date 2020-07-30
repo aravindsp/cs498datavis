@@ -84,7 +84,7 @@ var g = svg.append("g")
     });
 
     x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain([d3.min(data, function(d) { return d.value; }) / 1.1, d3.max(data, function(d) { return d.value; }) * 1.005]);
+    y.domain([d3.min(data, function(d) { return d.value; }) / 1.1, d3.max(data, function(d) { return d.value; }) * 1.1]);
 
     g.append("g")
         .attr("class", "axis axis--x")
