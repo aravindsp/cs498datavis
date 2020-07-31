@@ -4,7 +4,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#sp")
+var svg = d3.select("#gold")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+50)
@@ -31,7 +31,7 @@ var svg = d3.select("#sp")
       var g = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       
-          d3.csv("https://aravindsp.github.io/cs498datavis/AAPL.csv", function(error, data) {
+          d3.csv("https://aravindsp.github.io/cs498datavis/gold.csv", function(error, data) {
           if (error) throw error;
       
           data.forEach(function(d) {
