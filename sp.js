@@ -31,7 +31,7 @@ var svg = d3.select("#sp")
       var g = svg.append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       
-          d3.csv("https://aravindsp.github.io/cs498datavis/AAPL.csv", function(error, data) {
+          d3.csv("https://aravindsp.github.io/cs498datavis/sp.csv", function(error, data) {
           if (error) throw error;
       
           data.forEach(function(d) {
