@@ -21,7 +21,7 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 x.domain([startDate,endDate]);
-y.domain([5000,15000]);
+y.domain([5000,16000]);
 
 var g = svg.append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
