@@ -112,14 +112,14 @@ function plotChart(fileN,classN){
            /* Code below relevant for annotations */
            const annotations = [
           {
-            note: { label: "Stock Split 2:1", 
+            note: { label: "WHO declared Covid as Global Pandemic", 
               lineType:"none", 
               orientation: "leftRight", 
               "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
-            data: { x: "6/21/2020", y: 25000},
+            subject: { radius: 8 },
+            data: { x: "3/11/2020", y: 23553},
             dx: 40
           }
         ]
