@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <style>
     body {
@@ -34,6 +32,18 @@
       stroke: #6F257F;
       stroke-width: 5px;
     }
+
+    .line2019 {
+      fill: none;
+      stroke: #6e7f25;
+      stroke-width: 3px;
+    }
+
+    .line2018 {
+      fill: none;
+      stroke: #25327f;
+      stroke-width: 3px;
+    }
     
     .overlay {
       fill: none;
@@ -51,69 +61,61 @@
       stroke-width: 2px;
       stroke-dasharray: 2,4;
     }
-    
+
+    .track,
+    .track-inset,
+    .track-overlay {
+      stroke-linecap: round;
+    }
+
+    .track {
+      stroke: #000;
+      stroke-opacity: 0.3;
+      stroke-width: 10px;
+    }
+
+    .track-inset {
+      stroke: #dcdcdc;
+      stroke-width: 8px;
+    }
+
+    .track-overlay {
+      pointer-events: stroke;
+      stroke-width: 50px;
+      stroke: transparent;
+      cursor: crosshair;
+    }
+
+    .handle {
+      fill: #fff;
+      stroke: #000;
+      stroke-opacity: 0.5;
+      stroke-width: 1.25px;
+    }
+
+    .annotation.callout.circle path.subject{
+      fill: rgb(243, 46, 46);
+      fill-opacity: .8;
+    }
     </style>
-
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Final Project</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.2/vega-tooltip.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".scrollspy">
-  <p class="lead">
-    Market crashed due to Covid
-  </p>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="index.html">Market Reaction to Covid</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a>Description</a></li>
-          <li class="active"><a>S&P</a></li>
-          <li><a href="nifty.html">Nifty</a></li>
-          <li><a href="gold.html">Gold</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
+<script src="/Users/apillai2/Documents/GitHub/cs498datavis/sp.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<body>
 
-
-  <div class="container">
-    <br>
-    <br>
-    <div class="page-header">
-      <h1>USA - S&P</h1>
-    </div>
-    <p class="lead">
-      nifty was down
-    </p>
-    <br>
-
-    <div id="scatter" class="mx-auto col-md-8 col-12 mb-5"></div>
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <p>Resize the browser window to see the effect.</p>
+  <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+    <div id="sp" class="col-md-8"></div>
   </div>
-
-  <ul class="pager">
-    <li><a href="index.html">Previous</a></li>
-    <li><a href="gold.html">Next</a></li>
-  </ul>
-
-  <footer class="footer">
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
-  <script src="/Users/apillai2/Documents/GitHub/cs498datavis/scatter.js"></script>
-</body>
-
-</html>
+</div>

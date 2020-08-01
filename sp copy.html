@@ -1,0 +1,116 @@
+var myData = [21, 3, 5, 21, 15];
+//Width and height
+var w = 250;
+var h = 250;
+var yScale = null;
+
+function draw(initialData) {
+  var xScale = d3.scale.ordinal()
+    .domain(d3.range(initialData.length))
+    .rangeRoundBands([0, w], 0.05);
+
+  yScale = d3.scale.linear()
+    .domain([0, d3.max(initialData)])
+    .range([0, h]);
+
+  //Create SVG element
+  var svg = d3.select("#chart")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+  svg.selectAll("rect")
+    .data(initialData)
+    .enter()
+    .append("rect")
+    .attr("x", function(d, i) {
+      return xScale(i);
+    })
+    .attr("y", function(d) {
+      return h - yScale(d);
+    })
+    .attr("width", xScale.rangeBand())
+    .attr("height", function(d) {
+      return yScale(d);
+    })
+    .attr("fill", "steelblue");
+
+  svg.selectAll("text")
+    .data(initialData)
+    .enter()
+    .append("text")
+    .text(function(d) {
+      return d;
+    })
+    .attr("text-anchor", "middle")
+    .attr("x", function(d, i) {
+      return xScale(i) + xScale.rangeBand() / 2;
+    })
+    .attr("y", function(d) {
+      return h - yScale(d) + 14;
+    })
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "11px")
+    .attr("fill", "white");
+}
+
+
+function update(newData) {
+  yScale.domain([0, d3.max(newData)]);
+
+  var rects = d3.select("#chart svg")
+    .selectAll("rect")
+    .data(newData);
+
+  // enter selection
+  rects
+    .enter().append("rect");
+
+  // update selection
+  rects
+    .transition()
+    .duration(300)
+    .attr("y", function(d) {
+      return h - yScale(d);
+    })
+    .attr("height", function(d) {
+      return yScale(d);
+    })
+
+  // exit selection
+  rects
+    .exit().remove();
+
+  var texts = d3.select("#chart svg")
+    .selectAll("text")
+    .data(newData);
+
+  // enter selection
+  texts
+    .enter().append("rect");
+
+  // update selection
+  texts
+    .transition()
+    .duration(300)
+    .attr("y", function(d) {
+      return h - yScale(d) + 14;
+    })
+    .text(function(d) {
+      return d;
+    })
+
+  // exit selection
+  texts
+    .exit().remove();
+}
+
+window.onload = draw(myData);
+
+setInterval(function() {
+  var data = d3.range(5).map(function() {
+    return parseInt(Math.random() * 20 + 1);
+  });
+
+  update(data);
+}, 3000)

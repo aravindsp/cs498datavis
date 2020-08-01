@@ -1,7 +1,7 @@
 // Set Margins
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 760 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#sp")
@@ -106,52 +106,6 @@ function plotChart(fileN,classN){
       focus.select(".x-hover-line").attr("y2", height - y(d.value));
       focus.select(".y-hover-line").attr("x2", width + width);
     }
-
-    ////////////////
-
-           /* Code below relevant for annotations */
-           const annotations = [
-          {
-            note: { label: "Stock Split 2:1", 
-              lineType:"none", 
-              orientation: "leftRight", 
-              "align": "middle" },
-            className: "anomaly",
-            type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
-            data: { x: "6/21/2020", y: 25000},
-            dx: 40
-          }
-        ]
-
-        //An example of taking the XYThreshold and merging it 
-          //with custom settings so you don't have to 
-          //repeat yourself in the annotations Objects
-          const type = d3.annotationCustomType(
-            d3.annotationXYThreshold, 
-            {"note":{
-                "lineType":"none",
-                "orientation": "middle",
-                "align":"middle"}
-            }
-          )
-
-          const makeAnnotations = d3.annotation()
-            .type(type)
-            //Gives you access to any data objects in the annotations array
-            .accessors({ 
-              x: function(d){ return x(new Date(d.x))},
-              y: function(d){ return y(d.y) }
-            })
-            .annotations(annotations)
-            .textWrap(20)
-
-          //d3.select("svg")
-            g.append("g")
-            .attr("class", "annotation-group")
-            .call(makeAnnotations)
-
-
     });
 }
 
