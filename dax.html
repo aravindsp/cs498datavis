@@ -135,57 +135,34 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Final Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/vega-tooltip/0.4.2/vega-tooltip.css" rel="stylesheet">
 </head>
-
 <div class="container">
-  <br>
-  <br>
   <div class="page-header">
     <h1 align="center">Market Reaction to Covid 19</h1>
   </div>
   <p class="lead">
-    The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, 
-    with countries around the world suffering the destabilizing effects of the pandemic. No company is immune to the challenges caused by the health crisis, 
-    and there are understandable concerns about the damage caused to the worldwide economy.
+    The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of the pandemic. 
   </p>
-  <br>
 </div>
-
 <body data-spy="scroll" data-target=".scrollspy">
-  <nav class="navbarnavbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="index.html">S&P</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="nifty.html">Nifty</a></li>
-          <li><a href="gold.html">Gold</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
-    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">Dow Jones</a>
+      <a class="navbar-brand" href="dax.html">DAX</a>
+      <a class="navbar-brand" href="index.html">Nikkei</a>
+      <a class="navbar-brand" href="sp.html">Sensex</a>
+      <a class="navbar-brand" href="gold.html">Gold</a>
+    </nav>
+  </div>
+  <div class="container">
     <div class="page-header">
-      <h2>Dow Jones Industrial Average (USA)</h2>
+      <h3>Deutscher Aktienindex (German stock index)</h3>
     </div>
     <div class="row">
-      <div class="col-sm-4" style="background-color:lavender; font-size: 18px">The Dow Jones Industrial Average, Dow Jones, or simply the Dow, 
-        is a stock market index that measures the stock performance 
-        of 30 large companies listed on stock exchanges in the United States.</div>
+      <div class="col-sm-4"></div>
       <div class="col-sm-4" style="font-size: 28px;font-weight: bold;font-style: italic;" align="right">Dow Jones 2020</div>
       <div class="col-sm-4" align="right">
       <div class="Checkbox2019"><input type="checkbox" id="Checkbox2019"> Compare 2019</div>
@@ -193,30 +170,26 @@
       <div class="Checkbox2017"><input type="checkbox" id="Checkbox2017"> Compare 2017</div>      
       </div>
     </div>
-
     <div class="row">
-      <div class="col-sm-4" style="background-color:lavender; font-size: 18px">
-        The spread of the novel coronavirus disease COVID-19 has severely impacted 
-        the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of 
-        the pandemic. No company is immune to the challenges caused by the health crisis, and there are understandable concerns about the damage caused 
-        to the worldwide economy.he spread of the novel coronavirus disease COVID-19 has severely impacted 
-        the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of 
-        the pandemic.</div>
-      <div id="sp" class="col-md-8"></div>
+      <div class="col-sm-4" style="background-color:lightskyblue; font-size: 18px">
+        <div>The DAX (Deutscher Aktienindex (German stock index)) is a blue chip stock market index consisting of the 30 major German companies trading on the Frankfurt Stock Exchange. Prices are taken from the Xetra trading venue.
+          and there are understandable concerns about the damage caused to the worldwide economy.</div>
+        <div><br></div>
+        <div>The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of 
+        the pandemic. The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets.</div>
+      </div>
+      <div id="dax" class="col-md-8"></div>
     </div>
   </div>
-
-
   <ul class="pager">
     <li><a href="index.html">Previous</a></li>
     <li><a href="gold.html">Next</a></li>
   </ul>
-
   <footer class="footer">
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
-  <script src="/Users/apillai2/Documents/GitHub/cs498datavis/sp.js"></script>
+  <script src="/Users/apillai2/Documents/GitHub/cs498datavis/dax.js"></script>
   <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </body>
 

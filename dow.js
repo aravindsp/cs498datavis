@@ -1,10 +1,10 @@
 // Set Margins
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 760 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#sp")
+var svg = d3.select("#dow")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+50)
@@ -21,7 +21,7 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 x.domain([startDate,endDate]);
-y.domain([1000,40000]);
+y.domain([10000,40000]);
 
 var g = svg.append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -106,6 +106,52 @@ function plotChart(fileN,classN){
       focus.select(".x-hover-line").attr("y2", height - y(d.value));
       focus.select(".y-hover-line").attr("x2", width + width);
     }
+
+    ////////////////
+
+           /* Code below relevant for annotations */
+           const annotations = [
+          {
+            note: { label: "Stock Split 2:1", 
+              lineType:"none", 
+              orientation: "leftRight", 
+              "align": "middle" },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 10 },
+            data: { x: "6/21/2020", y: 25000},
+            dx: 40
+          }
+        ]
+
+        //An example of taking the XYThreshold and merging it 
+          //with custom settings so you don't have to 
+          //repeat yourself in the annotations Objects
+          const type = d3.annotationCustomType(
+            d3.annotationXYThreshold, 
+            {"note":{
+                "lineType":"none",
+                "orientation": "middle",
+                "align":"middle"}
+            }
+          )
+
+          const makeAnnotations = d3.annotation()
+            .type(type)
+            //Gives you access to any data objects in the annotations array
+            .accessors({ 
+              x: function(d){ return x(new Date(d.x))},
+              y: function(d){ return y(d.y) }
+            })
+            .annotations(annotations)
+            .textWrap(20)
+
+          //d3.select("svg")
+            g.append("g")
+            .attr("class", "annotation-group")
+            .call(makeAnnotations)
+
+
     });
 }
 
@@ -130,15 +176,16 @@ function plotChartBack(fileN,classN)
 }
 
 
-plotChart("https://aravindsp.github.io/cs498datavis/dow.csv","line");
+plotChart("https://aravindsp.github.io/cs498datavis/dow/2020.csv","line");
 
 d3.select("#Checkbox2019").on("change",update2019);
 d3.select("#Checkbox2018").on("change",update2018);
+d3.select("#Checkbox2017").on("change",update2017);
 
 function update2019(){
 if(d3.select("#Checkbox2019").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/sp.csv","line2019");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2019.csv","line2019");
     }
         else {
         d3.select("path.line2019").remove();
@@ -148,9 +195,19 @@ if(d3.select("#Checkbox2019").property("checked"))
 function update2018(){
 if(d3.select("#Checkbox2018").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/gold.csv","line2018");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2018.csv","line2018");
     }
         else {
         d3.select("path.line2018").remove();
             }		
     }
+
+function update2017(){
+        if(d3.select("#Checkbox2017").property("checked"))
+            {
+                plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2017.csv","line2017");
+            }
+                else {
+                d3.select("path.line2017").remove();
+                    }		
+            }
