@@ -112,7 +112,7 @@ function plotChart(fileN,classN){
            /* Code below relevant for annotations */
            const annotations = [
           {
-            note: { label: "WHO declared Covid as Global Pandemic", 
+            note: { label: "WHO declared Covid 19 as Global Pandemic", 
               lineType:"none", 
               orientation: "leftRight", 
               "align": "middle" },
