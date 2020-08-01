@@ -130,13 +130,7 @@
       color: green;
     }
 
-    .navbar-brand    
-    {
-      font-weight: bold;
-      font-size: 35px;
-      color: green;
-    }
-
+    .lead {padding: 10px;}
     </style>
 
   <meta charset="utf-8">
@@ -150,13 +144,9 @@
   <div class="page-header">
     <h1 {color: yellow; ext-shadow: 2px 2px 4px #000000;} align="center">Market Reaction to Covid 19</h1>
   </div>
-  <div class="col-lg-12" {padding: 25px 50px 75px 100px;} style="background-color:powderblue; border-radius: 12px; font-size: 21px;font-style: italic; font-family:'Trebuchet MS';" align="justify">
-    <br>
+  <p {padding: 20px;} class="lead" style="background-color:powderblue; border-radius: 12px; font-size: 21px;font-style: italic; font-family:'Trebuchet MS';">
     The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of the pandemic. 
     This is an attempt to visualize how major financial markets around the world reacted during Covid 19. Interactive ability to compare 2020 performance to previous year performances is also available.
-    <br><br>
-  </div>
-    <body data-spy="scroll" data-target=".scrollspy" style="background-color:rgb(252, 252, 238);">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.html">Dow Jones</a>
       <a class="navbar-brand" href="dax.html">DAX</a>
@@ -166,8 +156,12 @@
     </nav>
   </div>
   <div class="container">
+    <div class="page-header">
+      <h3>Dow Jones Industrial Average (USA)</h3>
+    </div>
     <div class="row">
-      <div class="col-md-8" style="text-decoration-line: underline; font-size: 26px;font-weight: bold;font-style: italic;" align="right">Dow Jones (USA) 2020 Performance </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4" style="font-size: 28px;font-weight: bold;font-style: italic;" align="right">Dow Jones 2020</div>
       <div class="col-sm-4" align="right">
       <div class="Checkbox2019"><input type="checkbox" id="Checkbox2019"> Compare 2019</div>
       <div class="Checkbox2018"><input type="checkbox" id="Checkbox2018"> Compare 2018</div>
@@ -175,13 +169,11 @@
       </div>
     </div>
     <div class="row">
-      <div {padding: 25px 50px 75px 100px;} class="col-sm-4" style="background-color:lavender; font-size: 18px; border-radius: 12px;" align="justify">
-        <br>The Dow Jones Industrial Average, Dow Jones, or simply the Dow, is a stock market index that measures the stock performance of 30 large companies listed on stock exchanges in the United States. 
-        <br><br> No company is immune to the challenges caused by the health crisis, and there are understandable concerns about the damage caused 
-        to the worldwide economy.The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets.
-        <br><br>
-        COVID-19 has severely impacted the global financial markets.COVID-19 has severely impacted the global financial markets.COVID-19 has severely impacted the global financial markets.
-        <br><br>
+      <div {padding: 25px 50px 75px 100px;} class="col-sm-4" style="background-color:lavender; font-size: 18px; border-radius: 12px;">
+        <br>The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of 
+        the pandemic. No company is immune to the challenges caused by the health crisis, and there are understandable concerns about the damage caused 
+        to the worldwide economy.The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets. These are incredibly uncertain times, with countries around the world suffering the destabilizing effects of 
+        the pandemic. The spread of the novel coronavirus disease COVID-19 has severely impacted the global financial markets.
       </div>
       <div id="dow" class="col-md-8"></div>
     </div>
