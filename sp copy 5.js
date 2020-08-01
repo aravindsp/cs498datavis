@@ -176,16 +176,15 @@ function plotChartBack(fileN,classN)
 }
 
 
-plotChart("https://aravindsp.github.io/cs498datavis/dow/2020.csv","line");
+plotChart("https://aravindsp.github.io/cs498datavis/dow.csv","line");
 
 d3.select("#Checkbox2019").on("change",update2019);
 d3.select("#Checkbox2018").on("change",update2018);
-d3.select("#Checkbox2017").on("change",update2017);
 
 function update2019(){
 if(d3.select("#Checkbox2019").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2019.csv","line2019");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/sp.csv","line2019");
     }
         else {
         d3.select("path.line2019").remove();
@@ -195,19 +194,9 @@ if(d3.select("#Checkbox2019").property("checked"))
 function update2018(){
 if(d3.select("#Checkbox2018").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2018.csv","line2018");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/gold.csv","line2018");
     }
         else {
         d3.select("path.line2018").remove();
             }		
     }
-
-function update2017(){
-        if(d3.select("#Checkbox2017").property("checked"))
-            {
-                plotChartBack("https://aravindsp.github.io/cs498datavis/dow/2017.csv","line2017");
-            }
-                else {
-                d3.select("path.line2017").remove();
-                    }		
-            }
