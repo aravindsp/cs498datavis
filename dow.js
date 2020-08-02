@@ -111,16 +111,29 @@ function plotChart(fileN,classN){
 
            /* Code below relevant for annotations */
            const annotations = [
+            {
+                note: { label: "First US Covid Case", 
+                  lineType:"none", 
+                  orientation: "top",
+                  "padding": 2, 
+                  "align": "top" },
+                className: "anomaly",
+                type: d3.annotationCalloutCircle,
+                subject: { radius: 10 },
+                data: { x: "1/21/2020", y: 29196},
+                dx: 25
+              },
           {
             note: { label: "WHO declared Covid 19 as Global Pandemic", 
               lineType:"none", 
-              orientation: "leftRight", 
+              orientation: "left",
+              "padding": 2, 
               "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 8 },
+            subject: { radius: 10 },
             data: { x: "3/11/2020", y: 23553},
-            dx: 40
+            dx: -25
           }
         ]
 
@@ -131,7 +144,7 @@ function plotChart(fileN,classN){
             d3.annotationXYThreshold, 
             {"note":{
                 "lineType":"none",
-                "orientation": "middle",
+                "orientation": "left",
                 "align":"middle"}
             }
           )
@@ -144,7 +157,6 @@ function plotChart(fileN,classN){
               y: function(d){ return y(d.y) }
             })
             .annotations(annotations)
-            .textWrap(20)
 
           //d3.select("svg")
             g.append("g")
