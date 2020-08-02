@@ -4,7 +4,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#nikkei")
+var svg = d3.select("#oil")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+50)
@@ -21,7 +21,7 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 x.domain([startDate,endDate]);
-y.domain([15000,25000]);
+y.domain([-10,100]);
 
 var g = svg.append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -115,41 +115,41 @@ function plotChart(fileN,classN){
           {
             note: { label: "WHO declares global health emergency", 
               lineType:"none", 
-              orientation: "bottom",
-              "padding": 2, 
-              "align": "middle" },
-            className: "anomaly",
-            type: d3.annotationCalloutCircle,
-            subject: { radius: 8 },
-            data: { x: "1/30/2020", y: 22979},
-            dy: 50
-          },
-
-
-          {
-            note: { label: "$1 Trillion Japan stimulus package annnounced", 
-              lineType:"none", 
-              orientation: "bottom",
-              "padding": 2, 
-              "align": "middle" },
-            className: "anomaly",
-            type: d3.annotationCalloutCircle,
-            subject: { radius: 8 },
-            data: { x: "5/27/2020", y: 21419},
-            dy: 90
-          },
-
-          {
-            note: { label: "Active Covid cases in Japan falls below the 1000 mark.", 
-              lineType:"none", 
               orientation: "top",
               "padding": 2, 
               "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
             subject: { radius: 8 },
-            data: { x: "6/12/2020", y: 22305},
+            data: { x: "1/30/2020", y: 52.14},
             dy: -50
+          },
+
+
+          {
+            note: { label: "$2 trillion US stimulus bill signed", 
+              lineType:"none", 
+              orientation: "bottom",
+              "padding": 2, 
+              "align": "middle" },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 8 },
+            data: { x: "3/27/2020", y: 21.84},
+            dy: 40
+          },
+
+          {
+            note: { label: "Biggest Price Drop in History", 
+              lineType:"none", 
+              orientation: "right",
+              "padding": 2, 
+              "align": "middle" },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 8 },
+            data: { x: "4/20/2020", y: -2.6},
+            dx: 50
           }
           
         ]
@@ -205,7 +205,7 @@ function plotChartBack(fileN,classN)
 }
 
 
-plotChart("https://aravindsp.github.io/cs498datavis/nikkei/2020.csv","line");
+plotChart("https://aravindsp.github.io/cs498datavis/oil/2020.csv","line");
 
 d3.select("#Checkbox2019").on("change",update2019);
 d3.select("#Checkbox2018").on("change",update2018);
@@ -214,7 +214,7 @@ d3.select("#Checkbox2017").on("change",update2017);
 function update2019(){
 if(d3.select("#Checkbox2019").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2019.csv","line2019");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/oil/2019.csv","line2019");
     }
         else {
         d3.select("path.line2019").remove();
@@ -224,7 +224,7 @@ if(d3.select("#Checkbox2019").property("checked"))
 function update2018(){
 if(d3.select("#Checkbox2018").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2018.csv","line2018");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/oil/2018.csv","line2018");
     }
         else {
         d3.select("path.line2018").remove();
@@ -234,7 +234,7 @@ if(d3.select("#Checkbox2018").property("checked"))
 function update2017(){
         if(d3.select("#Checkbox2017").property("checked"))
             {
-                plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2017.csv","line2017");
+                plotChartBack("https://aravindsp.github.io/cs498datavis/oil/2017.csv","line2017");
             }
                 else {
                 d3.select("path.line2017").remove();

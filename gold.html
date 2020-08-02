@@ -183,15 +183,15 @@
   <div style="font-size: 26px;font-weight: bold;">
     <button onclick="window.location.href = 'index.html'"; style="font-size: 16px;font-weight: bold;background-color:rgb(243, 183, 94);" class="btn">Dow Jones</button>
     <button onclick="window.location.href = 'dax.html'"; style="font-size: 16px;font-weight: bold;background-color:rgb(243, 183, 94);" class="btn">DAX</button>
-    <button onclick="window.location.href = 'nikkei.html'"; style="cursor: pointer; box-shadow: 2px 4px; font-size: 18px;font-weight: bold; background-color:rgb(171, 192, 236);" class="btn active">Nikkei</button>
-    <button onclick="window.location.href = 'gold.html'"; style="font-size: 16px;font-weight: bold;background-color:rgb(243, 183, 94);" class="btn">Gold</button>
+    <button onclick="window.location.href = 'nikkei.html'"; style="font-size: 16px;font-weight: bold;background-color:rgb(243, 183, 94);" class="btn">Nikkei</button>
+    <button onclick="window.location.href = 'gold.html'"; style="cursor: pointer; box-shadow: 2px 4px; font-size: 18px;font-weight: bold; background-color:rgb(171, 192, 236);" class="btn active">Gold</button>
     <button onclick="window.location.href = 'oil.html'"; style="font-size: 16px;font-weight: bold;background-color:rgb(243, 183, 94);" class="btn">Oil</button>
   </div>
     </div>
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-md-8" style="text-decoration-line: underline; font-size: 26px;font-weight: bold;font-style: italic;" align="right">Nikkei (Japan) 2020 Performance </div>
+      <div class="col-md-8" style="text-decoration-line: underline; font-size: 26px;font-weight: bold;font-style: italic;" align="right">Gold Futures 2020 Performance </div>
       <div class="col-sm-4" align="right">
       <div class="Checkbox2019"><input type="checkbox" id="Checkbox2019"> Compare 2019</div>
       <div class="Checkbox2018"><input type="checkbox" id="Checkbox2018"> Compare 2018</div>
@@ -200,20 +200,21 @@
     </div>
     <div class="row">
       <div {padding: 25px 50px 75px 100px;} class="col-sm-4" style="box-shadow: 5px 10px #888888; background-color:lavender; font-size: 20px; font-style: italic; font-family:'Trebuchet MS'; border-radius: 12px;">
-        <br>The Nikkei 225 is a stock market index for the Tokyo Stock Exchange. The value of the Nikkei Stock Average amounted to approximately 22,288 Japanese yen as of June 30, 2020, further recovering from around 18,917 yen at the end of March. The value in March was the worst drop, mainly caused by the corona global pandemic.
+        <br>Investors generally buy gold as a way of diversifying risk, especially through the use of futures contracts and derivatives.
+        <br><br> Gold futures notched their highest finish in July 2020, as investors closely watched infections across the world pick up, boosting demand for the metal that is perceived as a haven.
         <br><br>
         Please click on previous year comparisons to understand the market volatility experienced during this pandemic.
         <br><br>
       </div>
-      <div id="nikkei" class="col-md-8"></div>
+      <div id="gold" class="col-md-8"></div>
     </div>
   </div>
   <ul class="pager">
     <div style="position:fixed; bottom:40%; right:90%; font-size: 18px;font-weight: bold;">
-      <li class="previous round"><a href="dax.html">&#8249</a></li>
+      <li class="previous round"><a href="nikkei.html">&#8249</a></li>
     </div>
     <div style="position:fixed; bottom:40%; left:90%; font-size: 18px;font-weight: bold;">
-      <li class="next round"><a href="gold.html">&#8250</a></li>
+      <li class="next round"><a href="oil.html">&#8250</a></li>
     </div>
   </ul>
 
@@ -221,7 +222,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
-  <script src="nikkei.js"></script>
+  <script src="gold.js"></script>
   <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 </body>
 
