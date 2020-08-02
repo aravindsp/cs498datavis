@@ -21,7 +21,7 @@ var x = d3.scaleTime().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 x.domain([startDate,endDate]);
-y.domain([5000,16000]);
+y.domain([10000,40000]);
 
 var g = svg.append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -111,17 +111,47 @@ function plotChart(fileN,classN){
 
            /* Code below relevant for annotations */
            const annotations = [
+            
           {
-            note: { label: "Stock Split 2:1", 
+            note: { label: "WHO declares global health emergency", 
               lineType:"none", 
-              orientation: "leftRight", 
+              orientation: "top",
+              "padding": 2, 
               "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
-            data: { x: "6/21/2020", y: 25000},
-            dx: 40
+            subject: { radius: 8 },
+            data: { x: "1/30/2020", y: 28859},
+            dy: -50
+          },
+
+
+          {
+            note: { label: "$2 trillion US stimulus bill signed", 
+              lineType:"none", 
+              orientation: "bottom",
+              "padding": 2, 
+              "align": "middle" },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 8 },
+            data: { x: "3/27/2020", y: 21637},
+            dy: 60
+          },
+
+          {
+            note: { label: "US reaches 100,000 Covid deaths", 
+              lineType:"none", 
+              orientation: "top",
+              "padding": 2, 
+              "align": "middle" },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 8 },
+            data: { x: "5/27/2020", y: 25548},
+            dy: -50
           }
+          
         ]
 
         //An example of taking the XYThreshold and merging it 
@@ -131,7 +161,7 @@ function plotChart(fileN,classN){
             d3.annotationXYThreshold, 
             {"note":{
                 "lineType":"none",
-                "orientation": "middle",
+                "orientation": "left",
                 "align":"middle"}
             }
           )
@@ -144,7 +174,6 @@ function plotChart(fileN,classN){
               y: function(d){ return y(d.y) }
             })
             .annotations(annotations)
-            .textWrap(20)
 
           //d3.select("svg")
             g.append("g")
