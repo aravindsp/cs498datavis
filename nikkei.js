@@ -4,7 +4,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#dax")
+var svg = d3.select("#nikkei")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+50)
@@ -205,7 +205,7 @@ function plotChartBack(fileN,classN)
 }
 
 
-plotChart("https://aravindsp.github.io/cs498datavis/dax/2020.csv","line");
+plotChart("https://aravindsp.github.io/cs498datavis/nikkei/2020.csv","line");
 
 d3.select("#Checkbox2019").on("change",update2019);
 d3.select("#Checkbox2018").on("change",update2018);
@@ -214,7 +214,7 @@ d3.select("#Checkbox2017").on("change",update2017);
 function update2019(){
 if(d3.select("#Checkbox2019").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/dax/2019.csv","line2019");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2019.csv","line2019");
     }
         else {
         d3.select("path.line2019").remove();
@@ -224,7 +224,7 @@ if(d3.select("#Checkbox2019").property("checked"))
 function update2018(){
 if(d3.select("#Checkbox2018").property("checked"))
     {
-        plotChartBack("https://aravindsp.github.io/cs498datavis/dax/2018.csv","line2018");
+        plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2018.csv","line2018");
     }
         else {
         d3.select("path.line2018").remove();
@@ -234,7 +234,7 @@ if(d3.select("#Checkbox2018").property("checked"))
 function update2017(){
         if(d3.select("#Checkbox2017").property("checked"))
             {
-                plotChartBack("https://aravindsp.github.io/cs498datavis/dax/2017.csv","line2017");
+                plotChartBack("https://aravindsp.github.io/cs498datavis/nikkei/2017.csv","line2017");
             }
                 else {
                 d3.select("path.line2017").remove();
