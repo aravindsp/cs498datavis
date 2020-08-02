@@ -126,7 +126,7 @@ function plotChart(fileN,classN){
           },
 
           {
-            note: { label: "Trump declares US national emergency", 
+            note: { label: "US declares national emergency", 
               lineType:"none", 
               orientation: "top",
               "padding": 10, 
@@ -139,7 +139,7 @@ function plotChart(fileN,classN){
           },
 
           {
-            note: { label: "Trump signs $2 trillion US stimulus bill", 
+            note: { label: "$2 trillion US stimulus bill signed", 
               lineType:"none", 
               orientation: "bottom",
               "padding": 10, 
