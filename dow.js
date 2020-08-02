@@ -116,52 +116,40 @@ function plotChart(fileN,classN){
             note: { label: "WHO declares global health emergency", 
               lineType:"none", 
               orientation: "top",
-              "padding": 10, 
-              "align": "top" },
+              "padding": 2, 
+              "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
+            subject: { radius: 8 },
             data: { x: "1/30/2020", y: 28859},
-            dx: 50
+            dy: -50
           },
 
-          {
-            note: { label: "US declares national emergency", 
-              lineType:"none", 
-              orientation: "top",
-              "padding": 10, 
-              "align": "top" },
-            className: "anomaly",
-            type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
-            data: { x: "3/13/2020", y: 23186},
-            dx: 25
-          },
 
           {
             note: { label: "$2 trillion US stimulus bill signed", 
               lineType:"none", 
               orientation: "bottom",
-              "padding": 10, 
-              "align": "bottom" },
+              "padding": 2, 
+              "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
+            subject: { radius: 8 },
             data: { x: "3/27/2020", y: 21637},
-            dx: -50
+            dy: 60
           },
 
           {
             note: { label: "US reaches 100,000 Covid deaths", 
               lineType:"none", 
               orientation: "top",
-              "padding": 20, 
-              "align": "top" },
+              "padding": 2, 
+              "align": "middle" },
             className: "anomaly",
             type: d3.annotationCalloutCircle,
-            subject: { radius: 10 },
+            subject: { radius: 8 },
             data: { x: "5/27/2020", y: 25548},
-            dx: 70
+            dy: -50
           }
           
         ]
