@@ -121,13 +121,13 @@ function plotChart(fileN,classN){
             className: "anomaly",
             type: d3.annotationCalloutCircle,
             subject: { radius: 8 },
-            data: { x: "1/30/2020", y: 28859},
+            data: { x: "1/30/2020", y: 13157},
             dy: -50
           },
 
 
           {
-            note: { label: "$2 trillion US stimulus bill signed", 
+            note: { label: "130-billion-euro German stimulus package signed", 
               lineType:"none", 
               orientation: "bottom",
               "padding": 2, 
@@ -135,7 +135,7 @@ function plotChart(fileN,classN){
             className: "anomaly",
             type: d3.annotationCalloutCircle,
             subject: { radius: 8 },
-            data: { x: "3/27/2020", y: 21637},
+            data: { x: "6/3/2020", y: 12487},
             dy: 60
           },
 
